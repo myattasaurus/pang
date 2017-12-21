@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/Background.js" type="text/javascript"></script>
+    <script src="js/Ball.js" type="text/javascript"></script>
+    <script src="js/Paddle.js" type="text/javascript"></script>
+    <script src="js/GameArea.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <canvas id="pangCanvas" width="700" height="400" style="border:1px solid #000000;"></canvas>
+    <script>
+      var gameArea = new GameArea("pangCanvas");
+
+      function moveDraw() {
+        gameArea.move();
+        gameArea.draw();
+      }
+
+      setInterval(moveDraw, 17);
+    </script>
+  </body>
+</html>

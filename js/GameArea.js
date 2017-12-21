@@ -4,6 +4,16 @@ function GameArea(canvasId) {
 
   this.background = new Background(this.canvas);
   this.ball = new Ball();
+  this.leftPaddle = new Paddle();
+
+  window.addEventListener('keydown', function (e) {
+      e.preventDefault();
+      this.keys = (myGameArea.keys || []);
+      this.keys[e.keyCode] = (e.type == "keydown");
+  })
+  window.addEventListener('keyup', function (e) {
+      this.keys[e.keyCode] = (e.type == "keydown");
+  })
 
   this.reverseBall = function() {
     if (this.ball.x + this.ball.radius > this.canvas.width ||

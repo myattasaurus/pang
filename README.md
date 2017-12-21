@@ -1,0 +1,2 @@
+# pang
+Simple javascript game

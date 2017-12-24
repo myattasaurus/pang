@@ -4,16 +4,12 @@ function GameArea(canvasId) {
 
   this.background = new Background(this.canvas);
   this.ball = new Ball();
-  this.leftPaddle = new Paddle();
 
-  window.addEventListener('keydown', function (e) {
-      e.preventDefault();
-      this.keys = (myGameArea.keys || []);
-      this.keys[e.keyCode] = (e.type == "keydown");
-  })
-  window.addEventListener('keyup', function (e) {
-      this.keys[e.keyCode] = (e.type == "keydown");
-  })
+  // move with 'w' and 's' keys
+  this.leftPaddle = new Paddle(this.canvas, 'left', 87, 83);
+
+  // move with up and down keys
+  this.rightPaddle = new Paddle(this.canvas, 'right', 38, 40);
 
   this.reverseBall = function() {
     if (this.ball.x + this.ball.radius > this.canvas.width ||
@@ -27,11 +23,15 @@ function GameArea(canvasId) {
   }
 
   this.move = function() {
+    this.leftPaddle.move(this.keys);
+    this.rightPaddle.move(this.keys);
     this.ball.move();
     this.reverseBall();
   }
   this.draw = function() {
     this.background.draw(this.ctx);
     this.ball.draw(this.ctx);
+    this.leftPaddle.draw(this.ctx);
+    this.rightPaddle.draw(this.ctx);
   }
 }

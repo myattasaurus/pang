@@ -9,7 +9,17 @@
   <body>
     <canvas id="pangCanvas" width="700" height="400" style="border:1px solid #000000;"></canvas>
     <script>
+
       var gameArea = new GameArea("pangCanvas");
+
+      window.addEventListener('keydown', function (e) {
+          e.preventDefault();
+          gameArea.keys = (gameArea.keys || []);
+          gameArea.keys[e.keyCode] = (e.type == "keydown");
+      });
+      window.addEventListener('keyup', function (e) {
+          gameArea.keys[e.keyCode] = (e.type == "keydown");
+      });
 
       function moveDraw() {
         gameArea.move();

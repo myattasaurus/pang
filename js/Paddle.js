@@ -1,8 +1,3 @@
-var LEFT = 37;
-var UP = 38;
-var RIGHT = 39;
-var DOWN = 40;
-
 function Paddle(canvas, leftOrRight, upKey, downKey) {
   this.top = 0;
   this.height = 80;

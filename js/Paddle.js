@@ -36,6 +36,7 @@ function Paddle(canvas, leftOrRight, upKey, downKey) {
   }
 
   this.draw = function(ctx) {
-    ctx.fillRect(this.left, this.top, this.width, this.height)
+	ctx.fillStyle = "#49fb35";
+    ctx.fillRect(this.left, this.top, this.width, this.height);
   }
 }

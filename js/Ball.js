@@ -6,7 +6,7 @@ function Ball() {
   this.radius = 4;
 
   this.draw = function(ctx) {
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#49fb35";
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
     ctx.fill();

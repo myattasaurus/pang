@@ -3,7 +3,14 @@ function Background(canvas) {
   this.height = canvas.height;
 
   this.draw = function(ctx) {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.clearRect(0, 0, this.width, this.height);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, this.width, this.height);
+	
+	// cool line down the middle
+    ctx.strokeStyle = "#49fb35";
+	ctx.beginPath();
+	ctx.moveTo(this.width / 2, 0);
+	ctx.lineTo(this.width / 2,this.height);
+	ctx.stroke();
   }
 }
